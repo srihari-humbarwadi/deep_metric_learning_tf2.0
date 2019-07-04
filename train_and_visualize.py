@@ -3,8 +3,14 @@ import tensorflow_datasets as tfds
 import matplotlib.pyplot as plt
 from tqdm import tqdm_notebook
 import numpy as np
+import os
+
 print('TensorFlow ', tf.__version__)
 
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(physical_devices[0], True)
+tf.config.experimental.set_memory_growth(physical_devices[1], True)
+os.environ['TF_XLA_FLAGS'] = '--tf_xla_cpu_global_jit'
 
 batch_size = 256
 
