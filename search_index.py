@@ -1,3 +1,5 @@
+import tensorflow as tf
+
 class Index:
     def __init__(self, embeddings, labels):
         self.embeddings = embeddings
